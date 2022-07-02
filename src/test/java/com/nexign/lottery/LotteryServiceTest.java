@@ -1,11 +1,17 @@
 package com.nexign.lottery;
 
-import com.nexign.lottery.controllers.LotteryClientApi;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(LotteryClientApi.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class LotteryServiceTest {
+    @Autowired
+    private MockMvc mockMvc;
+
     @Test
     private void v1LotteryParticipantPost_check_saving_to_db_smoke() {
         // TODO

@@ -1,6 +1,6 @@
 package com.nexign.lottery.controllers;
 
-import com.nexign.lottery.models.ParticipantDto;
+import com.nexign.lottery.models.Participant;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ public class LotteryClientApi {
             path = "/lottery/participant",
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public void v1LotteryParticipantPost(@RequestBody ParticipantDto participantDto) {
+    public void v1LotteryParticipantPost(@RequestBody Participant participant) {
         // Сервис принимает на вход Post-запрос /lottery/participant,
         // тело запроса в виде json должно иметь поля (имя, возраст, город) участника;
         // Сервис сохраняет участника в БД
@@ -44,7 +44,7 @@ public class LotteryClientApi {
         int randomParticipant = ThreadLocalRandom.current().nextInt(participants);
 
         // Селектим участника...
-        ParticipantDto winner = new ParticipantDto("Kirill", 20, "Saint Petersburg");
+        Participant winner = new Participant("Kirill", 20, "Saint Petersburg");
 
         System.out.println(winner.toString());
 
